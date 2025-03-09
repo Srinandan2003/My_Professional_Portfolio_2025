@@ -3,7 +3,7 @@ import "./App.css";
 
 import NavBar from "./components/NavBar";
 import { Hero } from "./components/Hero";
-import Technologies from "./components/technologies";
+import Technologies from "./components/Technologies";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 
