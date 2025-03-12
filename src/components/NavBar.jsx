@@ -38,6 +38,9 @@ const NavBar = () => {
     }, 100);
   };
 
+  // Define navigation links in one place for easier maintenance
+  const navLinks = ['home', 'technologies', 'projects', 'github-activity', 'contact'];
+
   return (
     <nav className="fixed top-0 left-0 right-0 bg-black/80 backdrop-blur-sm z-50">
       <div className="container mx-auto px-8">
@@ -47,7 +50,7 @@ const NavBar = () => {
               onClick={() => handleClick('home')} 
               className="text-xl font-bold relative overflow-hidden group"
             >
-              <span className=" font-extrabold bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text animate-gradient-x">
+              <span className="font-extrabold bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text animate-gradient-x">
                 PORTFOLIO
               </span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
@@ -56,7 +59,7 @@ const NavBar = () => {
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            {['home', 'technologies', 'projects', 'contact'].map((link) => (
+            {navLinks.map((link) => (
               <button 
                 key={link}
                 onClick={() => handleClick(link)} 
@@ -64,7 +67,7 @@ const NavBar = () => {
                 onMouseEnter={() => setActiveLink(link)}
                 onMouseLeave={() => setActiveLink(null)}
               >
-                {link.charAt(0).toUpperCase() + link.slice(1)}
+                {link === 'github-activity' ? 'GitHub Activity' : link.charAt(0).toUpperCase() + link.slice(1)}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
@@ -126,13 +129,13 @@ const NavBar = () => {
             className="md:hidden fixed inset-0 top-[72px] bg-black/95 backdrop-blur-sm"
           >
             <div className="container mx-auto px-8 py-4 flex flex-col gap-4">
-              {['home', 'technologies', 'projects', 'contact'].map((link) => (
+              {navLinks.map((link) => (
                 <button 
                   key={link}
                   onClick={() => handleClick(link)} 
                   className="py-2 text-left text-white hover:text-gray-300 transition-colors text-lg group relative"
                 >
-                  {link.charAt(0).toUpperCase() + link.slice(1)}
+                  {link === 'github-activity' ? 'GitHub Activity' : link.charAt(0).toUpperCase() + link.slice(1)}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-1/4"></span>
                 </button>
               ))}
@@ -173,8 +176,5 @@ const NavBar = () => {
     </nav>
   );
 };
-
-// Add this to your global CSS or tailwind.config.js
-
 
 export default NavBar;
