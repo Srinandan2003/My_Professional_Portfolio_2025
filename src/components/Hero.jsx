@@ -50,13 +50,13 @@ export const Hero = () => {
           {/* Image Section */}
           <div className='w-full lg:w-1/2 mb-12 lg:mb-0'>
             <div className='flex justify-center lg:justify-end relative'>
-              {/* Background decoration elements */}
+              {/* Background decoration elements - made more transparent */}
               <motion.div 
-                className='absolute w-64 h-64 rounded-full bg-gradient-to-r from-gray-200 to-white opacity-20 blur-xl'
+                className='absolute w-64 h-64 rounded-full bg-gradient-to-r from-gray-200/10 to-white/10 opacity-10 blur-xl'
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ 
                   scale: [0.8, 1.2, 0.8], 
-                  opacity: [0.1, 0.3, 0.1],
+                  opacity: [0.1, 0.2, 0.1],
                   x: [0, 20, 0],
                   y: [0, -20, 0],
                 }}
@@ -69,11 +69,11 @@ export const Hero = () => {
               />
               
               <motion.div 
-                className='absolute w-48 h-48 rounded-full bg-gradient-to-r from-white to-gray-400 opacity-10 blur-xl'
+                className='absolute w-48 h-48 rounded-full bg-gradient-to-r from-white/10 to-gray-400/10 opacity-5 blur-xl'
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ 
                   scale: [1, 0.7, 1], 
-                  opacity: [0.1, 0.2, 0.1],
+                  opacity: [0.1, 0.15, 0.1],
                   x: [0, -20, 0],
                   y: [0, 20, 0],
                 }}
@@ -95,12 +95,12 @@ export const Hero = () => {
                 <div className='relative'>
                   {/* Animated border */}
                   <motion.div 
-                    className='absolute inset-0 rounded-3xl border-2 border-gray-400'
+                    className='absolute inset-0 rounded-3xl border-2 border-gray-400/30'
                     animate={{ 
                       boxShadow: [
-                        '0 0 0 0 rgba(156, 163, 175, 0.3)',
+                        '0 0 0 0 rgba(156, 163, 175, 0.2)',
                         '0 0 0 8px rgba(156, 163, 175, 0)',
-                        '0 0 0 0 rgba(156, 163, 175, 0.3)'
+                        '0 0 0 0 rgba(156, 163, 175, 0.2)'
                       ] 
                     }}
                     transition={{ 
@@ -115,11 +115,11 @@ export const Hero = () => {
                     alt="Srinandan Profile" 
                     width={400}
                     height={400}
-                    className='rounded-3xl object-cover shadow-2xl shadow-gray-900/20 border-2 border-gray-500/30'
+                    className='rounded-3xl object-cover shadow-2xl shadow-gray-900/10 border-2 border-gray-500/20'
                   />
                   
-                  {/* Subtle overlay gradient */}
-                  <div className='absolute inset-0 rounded-3xl bg-gradient-to-br from-gray-700/10 to-transparent pointer-events-none' />
+                  {/* Subtle overlay gradient - made more transparent */}
+                  <div className='absolute inset-0 rounded-3xl bg-gradient-to-br from-gray-700/5 to-transparent pointer-events-none' />
                 </div>
               </motion.div>
             </div>
@@ -158,7 +158,7 @@ export const Hero = () => {
               
               <motion.p 
                 variants={childVariants} 
-                className='my-2 max-w-lg py-4 text-lg md:text-xl leading-relaxed tracking-tight text-gray-700 dark:text-gray-300'
+                className='my-2 max-w-lg py-4 text-lg md:text-xl leading-relaxed tracking-tight text-gray-300'
               >
                 {HERO_CONTENT}
               </motion.p>
@@ -170,7 +170,7 @@ export const Hero = () => {
                   target='_blank'
                   rel='noopener noreferrer'
                   download
-                  className='relative inline-flex items-center px-8 py-4 overflow-hidden rounded-full group bg-gradient-to-r from-gray-500 to-gray-700 text-white shadow-lg'
+                  className='relative inline-flex items-center px-8 py-4 overflow-hidden rounded-full group bg-gradient-to-r from-gray-500/80 to-gray-700/80 text-white shadow-lg backdrop-blur-sm'
                   whileHover={{ 
                     scale: 1.05,
                     transition: { duration: 0.2 } 
@@ -194,7 +194,7 @@ export const Hero = () => {
                     </svg>
                     Download Resume
                     <motion.span 
-                      className='absolute bottom-0 left-0 w-full h-full bg-gradient-to-r from-gray-400 to-gray-600 -z-10'
+                      className='absolute bottom-0 left-0 w-full h-full bg-gradient-to-r from-gray-400/80 to-gray-600/80 -z-10'
                       initial={{ x: '-100%' }}
                       whileHover={{ x: 0 }}
                       transition={{ duration: 0.3 }}

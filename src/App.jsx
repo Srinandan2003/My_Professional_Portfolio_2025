@@ -6,17 +6,14 @@ import { Hero } from "./components/Hero";
 import Technologies from "./components/Technologies";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
-import GitHubActivity from "./components/GitHubActivity"; // Add this import
+import GitHubActivity from "./components/GitHubActivity";
+import ThreeBackground from "./components/ThreeBackground"; // Import the new background
 
 function App() {
   return (
     <>
       <div className="overflow-x-hidden text-stone-300 antialiased">
-        <div className="fixed inset-0 -z-10">
-          <div className="relative h-full w-full bg-black">
-            <div className="absolute inset-0 bg-[linear-gradient(120deg,#0d0d0d,#1a1a1a,#333333)]"></div>
-          </div>
-        </div>
+        <ThreeBackground /> {/* Use the new background */}
 
         <NavBar />
 
@@ -33,7 +30,6 @@ function App() {
             <Projects />
           </section>
 
-          {/* GitHub Activity Section */}
           <section id="github-activity" className="py-16">
             <h2 className="text-4xl font-bold mb-8 text-center">GitHub Activity</h2>
             <div className="mx-auto max-w-5xl">
