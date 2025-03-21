@@ -43,6 +43,32 @@ const imageVariants = {
 }
 
 export const Hero = () => {
+  // Google Drive link for viewing
+  const viewUrl = "https://drive.google.com/file/d/1ZVXmH6L_hvv_bhmX5iPPi6_5uJZj2DJc/view?usp=sharing";
+  
+  // Local resume path in public folder for downloading
+  const localResumePath = '/resume.pdf';
+  
+  // Function to handle both viewing (Google Drive) and download (local file)
+  const handleResumeClick = (e) => {
+    // Prevent the default anchor behavior
+    e.preventDefault();
+    
+    // 1. Open Drive link in new tab for viewing
+    window.open(viewUrl, '_blank');
+    
+    // 2. Use local file for download
+    setTimeout(() => {
+      // Create a link element for download
+      const link = document.createElement('a');
+      link.href = localResumePath;
+      link.setAttribute('download', 'Srinandan_Resume.pdf');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }, 300); // Small delay to ensure view opens first
+  };
+
   return (
     <div className='min-h-screen flex items-center py-16 lg:py-24'>
       <div className='container mx-auto px-4'>
@@ -166,10 +192,8 @@ export const Hero = () => {
               {/* Resume button with hover effect */}
               <motion.div variants={childVariants}>
                 <motion.a 
-                  href="/resume.pdf"
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  download
+                  href={viewUrl}
+                  onClick={handleResumeClick}
                   className='relative inline-flex items-center px-8 py-4 overflow-hidden rounded-full group bg-gradient-to-r from-gray-500/80 to-gray-700/80 text-white shadow-lg backdrop-blur-sm'
                   whileHover={{ 
                     scale: 1.05,

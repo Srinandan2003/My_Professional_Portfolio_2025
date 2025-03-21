@@ -1,7 +1,4 @@
 import project1 from "../assets/projects/project-1.webp";
-import project2 from "../assets/projects/project-2.webp";
-import project3 from "../assets/projects/project-3.webp";
-import project4 from "../assets/projects/project-4.webp";
 
 export const HERO_CONTENT = `Web Developer skilled in HTML, CSS,
 JavaScript, and frameworks like React,
