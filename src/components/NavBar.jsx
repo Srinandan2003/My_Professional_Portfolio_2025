@@ -51,9 +51,9 @@ const NavBar = () => {
               className="text-xl font-bold relative overflow-hidden group"
             >
               <span className="font-extrabold bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text animate-gradient-x">
-                PORTFOLIO
+                {"<PORTFOLIO/>"}
               </span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-full h-0 bg-white/10 transition-all duration-300 -z-10"></span>
             </button>
           </div>
 
@@ -63,12 +63,14 @@ const NavBar = () => {
               <button 
                 key={link}
                 onClick={() => handleClick(link)} 
-                className="relative text-white hover:text-gray-300 transition-colors py-1 group"
+                className="relative text-white hover:text-gray-900 transition-colors py-1 px-3 group"
                 onMouseEnter={() => setActiveLink(link)}
                 onMouseLeave={() => setActiveLink(null)}
               >
-                {link === 'github-activity' ? 'GitHub Activity' : link.charAt(0).toUpperCase() + link.slice(1)}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                <span className="relative z-10">
+                  {link === 'github-activity' ? 'GitHub Activity' : link.charAt(0).toUpperCase() + link.slice(1)}
+                </span>
+                <span className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 group-hover:opacity-80 rounded-sm"></span>
               </button>
             ))}
           </div>
@@ -79,27 +81,27 @@ const NavBar = () => {
               href="https://www.linkedin.com/in/srinandan-m-n-b55bab321"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-white hover:text-blue-400 transition-all duration-300 group relative"
+              className="flex items-center gap-2 text-white hover:text-gray-900 transition-all duration-300 group relative px-3 py-1"
               aria-label="LinkedIn"
             >
-              <FaLinkedin className="text-xl transform transition-transform duration-300 group-hover:scale-110" />
-              <span className="text-sm font-medium relative">
+              <FaLinkedin className="text-xl transform transition-transform duration-300 group-hover:scale-110 relative z-10" />
+              <span className="text-sm font-medium relative z-10">
                 LinkedIn
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
               </span>
+              <span className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 group-hover:opacity-80 rounded-sm"></span>
             </a>
             <a 
               href="https://github.com/Srinandan2003"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-white hover:text-gray-300 transition-all duration-300 group relative"
+              className="flex items-center gap-2 text-white hover:text-gray-900 transition-all duration-300 group relative px-3 py-1"
               aria-label="GitHub"
             >
-              <FaGithub className="text-xl transform transition-transform duration-300 group-hover:scale-110" />
-              <span className="text-sm font-medium relative">
+              <FaGithub className="text-xl transform transition-transform duration-300 group-hover:scale-110 relative z-10" />
+              <span className="text-sm font-medium relative z-10">
                 GitHub
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-300 transition-all duration-300 group-hover:w-full"></span>
               </span>
+              <span className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 group-hover:opacity-80 rounded-sm"></span>
             </a>
           </div>
 
@@ -133,10 +135,12 @@ const NavBar = () => {
                 <button 
                   key={link}
                   onClick={() => handleClick(link)} 
-                  className="py-2 text-left text-white hover:text-gray-300 transition-colors text-lg group relative"
+                  className="py-2 px-3 text-left text-white hover:text-gray-900 transition-colors text-lg group relative"
                 >
-                  {link === 'github-activity' ? 'GitHub Activity' : link.charAt(0).toUpperCase() + link.slice(1)}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-1/4"></span>
+                  <span className="relative z-10">
+                    {link === 'github-activity' ? 'GitHub Activity' : link.charAt(0).toUpperCase() + link.slice(1)}
+                  </span>
+                  <span className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 group-hover:opacity-80 rounded-sm"></span>
                 </button>
               ))}
               
@@ -146,27 +150,27 @@ const NavBar = () => {
                   href="https://www.linkedin.com/in/srinandan-m-n-b55bab321"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-white hover:text-blue-400 transition-all duration-300 group"
+                  className="flex items-center gap-3 text-white hover:text-gray-900 transition-all duration-300 group relative px-3 py-1"
                   aria-label="LinkedIn"
                 >
-                  <FaLinkedin className="text-xl transform transition-transform duration-300 group-hover:scale-110" />
-                  <span className="text-base relative">
+                  <FaLinkedin className="text-xl transform transition-transform duration-300 group-hover:scale-110 relative z-10" />
+                  <span className="text-base relative z-10">
                     LinkedIn
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
                   </span>
+                  <span className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 group-hover:opacity-80 rounded-sm"></span>
                 </a>
                 <a 
                   href="https://github.com/Srinandan2003"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-white hover:text-gray-300 transition-all duration-300 group"
+                  className="flex items-center gap-3 text-white hover:text-gray-900 transition-all duration-300 group relative px-3 py-1"
                   aria-label="GitHub"
                 >
-                  <FaGithub className="text-xl transform transition-transform duration-300 group-hover:scale-110" />
-                  <span className="text-base relative">
+                  <FaGithub className="text-xl transform transition-transform duration-300 group-hover:scale-110 relative z-10" />
+                  <span className="text-base relative z-10">
                     GitHub
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-300 transition-all duration-300 group-hover:w-full"></span>
                   </span>
+                  <span className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 group-hover:opacity-80 rounded-sm"></span>
                 </a>
               </div>
             </div>

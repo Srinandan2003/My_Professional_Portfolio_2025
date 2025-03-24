@@ -3,106 +3,103 @@ import { PROJECTS } from '../constants';
 
 const Projects = () => {
   return (
-    <section className="py-16 px-4 bg-transparent text-gray-200">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-          Projects
+    <section className="py-16 px-4 bg-transparent text-white">
+      <div className="max-w-4xl mx-auto w-full">
+        <h2 className="text-4xl font-semibold mb-12 text-center tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 drop-shadow-[0_0_10px_rgba(34,211,238,0.7)]">
+          My Projects
         </h2>
-        
-        <div className="space-y-24">
+
+        <div className="space-y-8">
           {PROJECTS.map((project, index) => (
             <div
               key={index}
-              className="group relative"
+              className="rounded-lg bg-[#2a2a2a]/50 border border-[#3a3a3a]/50 backdrop-blur-sm shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group overflow-hidden"
             >
-              {/* Project card with subtle glass effect */}
-              <div className="rounded-xl overflow-hidden backdrop-blur-sm bg-gray-900/30 border border-gray-800/50 shadow-xl transition-all duration-500 hover:shadow-blue-500/10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  {/* Project image with fixed aspect ratio and object-fit control */}
-                  <div className="relative h-64 lg:h-full overflow-hidden">
-                    <img 
-                      src={project.image}
-                      alt={project.title}
-                      className="absolute inset-0 w-full h-full object-contain object-center max-w-full max-h-full group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </div>
-                  
-                  {/* Project details */}
-                  <div className="p-6 lg:p-8 flex flex-col">
-                    {/* Title with minimal accent */}
-                    <div className="flex items-center mb-6">
-                      <div className="w-10 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mr-4"></div>
-                      <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-                    </div>
-                    
-                    {/* Description */}
-                    <p className="text-gray-300 mb-6 leading-relaxed">
-                      {project.description}
-                    </p>
-                    
-                    {/* Key features */}
-                    <div className="space-y-3 mb-6">
-                      {project.text.map((item, i) => (
-                        <div 
-                          key={i}
-                          className="flex items-start space-x-3"
-                        >
-                          <div className="text-blue-400 mt-1 flex-shrink-0">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4">
-                              <path d="M8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 11.3137 11.3137 14 8 14Z" fill="currentColor"/>
-                              <path d="M7 11.4L3.6 8L5.2 6.4L7 8.2L10.8 4.4L12.4 6L7 11.4Z" fill="currentColor"/>
-                            </svg>
-                          </div>
-                          <p className="text-sm text-gray-400">{item.text}</p>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    {/* Tech Stack Pills */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.technologies.map((tech, techIndex) => (
-                        <div
-                          key={techIndex}
-                          className="rounded-full px-3 py-1 text-xs border border-gray-800/50 bg-gray-900/50 backdrop-blur-sm flex items-center hover:bg-gray-800/50 transition-colors duration-300"
-                        >
-                          {getTechIcon(tech)}
-                          <span className="ml-2">{tech}</span>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    {/* Call to action buttons */}
-                    <div className="flex flex-wrap gap-3 mt-auto">
-                      {project.liveLink && (
-                        <a 
-                          href={project.liveLink} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-5 py-2 rounded-lg flex items-center justify-center space-x-2 text-sm shadow-lg shadow-blue-500/20 transition-all duration-300 hover:shadow-blue-500/30"
-                        >
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="currentColor"/>
-                            <path d="M13 7H11V13H17V11H13V7Z" fill="currentColor"/>
-                          </svg>
-                          <span>Live Demo</span>
-                        </a>
-                      )}
-                      
-                      {project.githubLink && (
-                        <a 
-                          href={project.githubLink} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="bg-gray-800/70 hover:bg-gray-700/70 text-white px-5 py-2 rounded-lg flex items-center justify-center space-x-2 text-sm transition-colors duration-300"
-                        >
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4">
-                            <path d="M12 2.24658C6.475 2.24658 2 6.72158 2 12.2466C2 16.6216 4.8625 20.3091 8.8375 21.6216C9.3375 21.7216 9.525 21.4216 9.525 21.1716C9.525 20.9466 9.5125 20.0966 9.5125 19.2966C7 19.8341 6.35 18.7841 6.15 18.2216C6.0375 17.9466 5.55 17.0966 5.125 16.8716C4.775 16.6966 4.275 16.1591 5.1125 16.1466C5.9 16.1341 6.4625 16.9216 6.65 17.2091C7.55 18.6841 8.9875 18.2591 9.5625 18.0091C9.6625 17.3716 9.9625 16.9341 10.3 16.6841C8.0875 16.4341 5.775 15.5841 5.775 11.8341C5.775 10.7841 6.1625 9.91908 6.675 9.25658C6.5625 9.01908 6.225 7.98408 6.775 6.62158C6.775 6.62158 7.6125 6.37158 9.525 7.74658C10.325 7.53408 11.175 7.42908 12.025 7.42908C12.875 7.42908 13.725 7.53408 14.525 7.74658C16.4375 6.35908 17.275 6.62158 17.275 6.62158C17.825 7.98408 17.4875 9.01908 17.375 9.25658C17.8875 9.91908 18.275 10.7716 18.275 11.8341C18.275 15.5966 15.95 16.4341 13.7375 16.6841C14.15 16.9966 14.5 17.6091 14.5 18.5591C14.5 19.9091 14.4875 20.8466 14.4875 21.1716C14.4875 21.4216 14.675 21.7341 15.175 21.6216C17.1625 20.9591 18.84 19.6216 19.9398 17.8421C21.0397 16.0627 21.4992 13.9716 21.25 11.9091C21.0008 9.84664 20.0581 7.93825 18.5611 6.49119C17.064 5.04413 15.1106 4.14146 13.037 3.91398C10.9634 3.68651 8.86295 4.15077 7.06517 5.23664C5.26739 6.32251 3.88862 7.97549 3.1349 9.93536C2.38118 11.8952 2.28723 14.0515 2.86845 16.0719C3.44967 18.0924 4.67265 19.8737 6.35 21.1216" fill="currentColor"/>
-                          </svg>
-                          <span>GitHub</span>
-                        </a>
-                      )}
-                    </div>
-                  </div>
+              {/* Image */}
+              <div className="relative h-48 w-full overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2 text-white bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]">
+                  {project.title}
+                </h3>
+                <p className="text-neutral-300 text-sm mb-4 leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-2 mb-4">
+                  {project.text.map((item, i) => (
+                    <li key={i} className="flex items-start text-neutral-300 text-sm">
+                      <span className="text-cyan-400 mr-2 drop-shadow-[0_0_4px_rgba(34,211,238,0.3)]">
+                        •
+                      </span>
+                      {item.text}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="px-2 py-1 text-xs bg-[#3a3a3a]/70 text-neutral-200 rounded-md border border-[#4a4a4a]/50 backdrop-blur-sm group-hover:bg-[#4a4a4a]/70 transition-colors duration-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Links */}
+                <div className="flex gap-4">
+                  {project.liveLink && (
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors flex items-center gap-1 drop-shadow-[0_0_6px_rgba(34,211,238,0.4)]"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        className="w-4 h-4"
+                      >
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                      </svg>
+                      Live Demo
+                    </a>
+                  )}
+                  {project.githubLink && (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors flex items-center gap-1 drop-shadow-[0_0_6px_rgba(147,51,234,0.4)]"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="w-4 h-4"
+                      >
+                        <path d="M12 2C6.475 2 2 6.475 2 12c0 4.425 2.862 8.162 6.839 9.491.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.697-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.089 2.91.833.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.102-.253-.446-1.268.098-2.646 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.378.202 2.393.1 2.646.64.696 1.024 1.588 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.18.516.687.475A10.016 10.016 0 0022 12c0-5.525-4.475-10-10-10z" />
+                      </svg>
+                      GitHub
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -111,26 +108,6 @@ const Projects = () => {
       </div>
     </section>
   );
-};
-
-// Helper function to generate icons based on technology name
-const getTechIcon = (tech) => {
-  const iconMap = {
-    HTML: <svg width="12" height="12" viewBox="0 0 24 24" fill="#E34F26" className="w-4 h-4"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>,
-    CSS: <svg width="12" height="12" viewBox="0 0 24 24" fill="#1572B6" className="w-4 h-4"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414v-.001z"/></svg>,
-    JavaScript: <svg width="12" height="12" viewBox="0 0 24 24" fill="#F7DF1E" className="w-4 h-4"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>,
-    "Tailwind CSS": <svg width="12" height="12" viewBox="0 0 24 24" fill="#06B6D4" className="w-4 h-4"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/></svg>,
-    Firebase: <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFCA28" className="w-4 h-4"><path d="M3.89 15.672L6.255.461A.542.542 0 017.27.288l2.543 4.771zm16.794 3.692l-2.25-14a.54.54 0 00-.919-.295L3.316 19.365l7.856 4.427a1.621 1.621 0 001.588 0zM14.3 7.147l-1.82-3.482a.542.542 0 00-.96 0L3.53 17.984z"/></svg>,
-    React: <svg width="12" height="12" viewBox="0 0 24 24" fill="#61DAFB" className="w-4 h-4"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.397-.465-.783-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.396.435-.79.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg>,
-    // Default for any other technology
-    default: <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-      <path d="M11 7h2v6h-2zm0 8h2v2h-2z"/>
-    </svg>
-  };
-  
-  // Return the icon if it exists, or the default icon
-  return iconMap[tech] || iconMap.default;
 };
 
 export default Projects;
