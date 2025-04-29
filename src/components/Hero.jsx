@@ -44,7 +44,7 @@ const imageVariants = {
 
 export const Hero = () => {
   // Google Drive link for viewing
-  const viewUrl = "https://drive.google.com/file/d/1ZVXmH6L_hvv_bhmX5iPPi6_5uJZj2DJc/view?usp=sharing";
+  const viewUrl = " https://resume-builder-test-new.masaischool.com/resume/public?resumeId=67e68476cde989613608b836";
   
   // Local resume path in public folder for downloading
   const localResumePath = '/resume.pdf';
@@ -216,7 +216,7 @@ export const Hero = () => {
                         d='M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
                       />
                     </svg>
-                    Download Resume
+                    Resume
                     <motion.span 
                       className='absolute bottom-0 left-0 w-full h-full bg-gradient-to-r from-gray-400/80 to-gray-600/80 -z-10'
                       initial={{ x: '-100%' }}
